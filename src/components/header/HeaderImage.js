@@ -158,7 +158,7 @@ export default function HeaderImage() {
 
 
     return (
-        <>
+        <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 10  }}>
             <Box sx={{ flexGrow: 1 }}>
                 <AppBar position="static">
                     <Toolbar>
@@ -191,8 +191,6 @@ export default function HeaderImage() {
                                 inputProps={{ 'aria-label': 'search' }}
                             />
                         </Search> */}
-
-
 
                         <Box sx={{ flexGrow: 1 }} />
                         <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
@@ -240,6 +238,6 @@ export default function HeaderImage() {
                 {renderMenu}
             </Box>
 
-        </>
+        </div>
     )
 }

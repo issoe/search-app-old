@@ -17,19 +17,22 @@ img {
 
 }
 
+/* use */
 .my-display-image-input {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
+    margin-top: 70px;
 }
 
+/* use */
 .my-display-image-input-info {
     background-color: red;
     min-width: 400px;
 }
 
-
+/* use */
 input[type="file"] {
     color: transparent;
 }

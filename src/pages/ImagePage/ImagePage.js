@@ -8,13 +8,13 @@ import relatedImages from '../../data/relatedImages';
 import HeaderImage from "../../components/header/HeaderImage"
 import CardPicture from "../../components/Card/CardPicture/CardPicture"
 import ImageInput from '../../components/input/imageInput/ImageInput';
+import DemoFooter from '../../components/footer/DemoFooter';
 
 export default function ImagePage() {
     return (
         <>
             <HeaderImage />
-            
-            <ImageInput/>
+            <ImageInput />
 
             <div className='my-header'>The most suitable images</div>
             {
@@ -36,6 +36,8 @@ export default function ImagePage() {
                     <CardPicture imgName={image.name} imgUrl={image.url} />
                 ))
             }
+
+            <DemoFooter />
         </>
     )
 }
