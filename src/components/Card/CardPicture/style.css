@@ -1,0 +1,108 @@
+.my-card-photo {
+    margin: 2px;
+}
+
+.my-card-content {
+    /* background-color: #ccc; */
+    text-align: center;
+    line-height: 0;
+    padding: 0px;
+    /* line-height: 20px; */
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.my-card-text-content {
+    font-size: 16px;
+    font-weight: 500;
+    background-color: blue;
+}
+
+.my-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1976d2;
+    text-align: center;
+    /* background-color: red; */
+}
+
+/* use */
+.my-card-item {
+    display: inline-block;
+    margin: 10px;
+    min-width: 100px;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: red;
+}
+
+/* use */
+.overlay {
+    opacity: 0;
+}
+
+/* use */
+.my-card-item:hover .overlay {
+    opacity: 1;
+}
+
+.my-display {
+    position: absolute;
+    top: 0;
+    /* background-color: #ccc; */
+    width: 150px;
+    height: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* use */
+.my-card-item:hover {
+    opacity: 0.8;
+}
+
+/* use */
+.my-image-name-outer {
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+}
+
+/* use */
+.my-image-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1976d2;
+}
+
+/* use */
+.my-action {
+    position: absolute;
+    top: 0;
+    background-color: #e8dfdf;
+    width: 150px;
+    height: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* use */
+.my-action-btn {
+    height: 24px;
+    width: 75px;
+}
+
+/* use */
+.my-action-btn:hover {
+    background-color: rgb(205, 182, 182) !important;
+}
+
+/* use */
+.my-action-btn-doing {
+    height: 20px !important;
+}

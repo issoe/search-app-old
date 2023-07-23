@@ -1,0 +1,17 @@
+.my-header {
+    background-color: #f3e7e7;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+}
+
+#drop-area {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
