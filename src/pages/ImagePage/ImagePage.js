@@ -9,12 +9,14 @@ import HeaderImage from "../../components/header/HeaderImage"
 import CardPicture from "../../components/Card/CardPicture/CardPicture"
 import ImageInput from '../../components/input/imageInput/ImageInput';
 import DemoFooter from '../../components/footer/DemoFooter';
+import Dropdown from '../../components/Dropdown/Dropdown';
 
 export default function ImagePage() {
     return (
         <>
             <HeaderImage />
             <ImageInput />
+            <Dropdown />
 
             <div className='my-header'>The most suitable images</div>
             {
