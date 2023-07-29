@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
 export default function LoginPage() {
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -17,6 +18,7 @@ export default function LoginPage() {
             password: data.get("password"),
         });
     };
+
     return (
         <>
             <Container component="main" maxWidth="xs">
