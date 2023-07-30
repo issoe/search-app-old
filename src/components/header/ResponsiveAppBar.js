@@ -13,8 +13,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import SearchIcon from '@mui/icons-material/Search';
+import { Link } from 'react-router-dom';
 
-const pages = ['Products', 'Price', 'Login', 'Sign up'];
+const pages = ['Products', 'Price'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -23,13 +24,18 @@ function ResponsiveAppBar() {
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
+        console.log("Fucking you")
     };
+
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
+        console.log("Hello em")
     };
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
+        console.log("fucking you 8")
+
     };
 
     const handleCloseUserMenu = () => {
@@ -127,12 +133,20 @@ function ResponsiveAppBar() {
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
+                        <Button
+                            key='login'
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'white', display: 'block' }}
+                            href="/login"
+                        >
+                            Login
+                        </Button>
+                        {/* <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                             </IconButton>
-                        </Tooltip>
-                        <Menu
+                        </Tooltip> */}
+                        {/* <Menu
                             sx={{ mt: '45px' }}
                             id="menu-appbar"
                             anchorEl={anchorElUser}
@@ -153,7 +167,8 @@ function ResponsiveAppBar() {
                                     <Typography textAlign="center">{setting}</Typography>
                                 </MenuItem>
                             ))}
-                        </Menu>
+                        </Menu> */}
+                        {/* Hello */}
                     </Box>
                 </Toolbar>
             </Container>

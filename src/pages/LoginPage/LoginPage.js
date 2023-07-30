@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
 export default function LoginPage() {
-    
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -17,6 +17,7 @@ export default function LoginPage() {
             email: data.get("email"),
             password: data.get("password"),
         });
+        window.location.href = "/image";
     };
 
     return (
