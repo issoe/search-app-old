@@ -15,6 +15,8 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import Link from "@mui/material/Link";
+
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -158,7 +160,7 @@ export default function HeaderImage() {
 
 
     return (
-        <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 10  }}>
+        <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 10 }}>
             <Box sx={{ flexGrow: 1 }}>
                 <AppBar position="static">
                     <Toolbar>
@@ -180,6 +182,18 @@ export default function HeaderImage() {
                             AIQuest
                         </Typography>
 
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="div"
+                            sx={{ display: { xs: 'none', sm: 'block' } }}
+                        >
+                            <Link href="/" >
+                                <p>Products</p>
+                            </Link>
+                        </Typography>
+
+                        
 
 
                         {/* <Search>

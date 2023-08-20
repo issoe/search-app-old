@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import HeaderImage from '../../components/header/HeaderImage';
 import DemoFooter from '../../components/footer/DemoFooter';
+import Button from '@mui/material/Button';
+import './style.css'
 
 export default function TextPage() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -80,7 +82,9 @@ export default function TextPage() {
             "name": "Language and Communication",
             "jobs": [
                 { "id": 31, "name": "English Translator/ Interpreter" },
-                { "id": 23, "name": "Journalism Trainer" }
+                { "id": 23, "name": "Journalism Trainer" },
+                { "id": 42, "name": "Latin America Manager" },
+                { "id": 43, "name": "Scriptwriters" }
             ]
         },
         {
@@ -96,59 +100,19 @@ export default function TextPage() {
         const query = event.target.value;
         setSearchQuery(query);
 
-        // Simulate API call to get search results (you can replace this with your actual API call)
-        // For simplicity, let's assume we have a hardcoded list of results.
-        // const simulatedResults = [
-        //     { id: 1, name: 'Business Analyst - Clinical & Logistics Platform' },
-        //     { id: 2, name: 'Business Analyst' },
-        //     { id: 3, name: 'Data Analyst' },
-        //     { id: 4, name: 'Information Security Analyst}, Incident Response' },
-        //     { id: 5, name: 'Analyst - FP&A Global Revenue' },
-        //     { id: 6, name: 'Investment Analyst - Graduate' },
-        //     { id: 7, name: 'IT Business Process Analysis' },
-        //     { id: 8, name: 'Tolling Business Analyst' },
-        //     { id: 9, name: 'Business Analyst - Risk' },
-        //     { id: 10, name: 'Digital Analyst' },
-        //     { id: 11, name: 'KYC Business System Analyst' },
-        //     { id: 12, name: 'Radiology Systems Analyst' },
-        //     { id: 13, name: 'Ecommerce Business Analyst' },
-        //     { id: 14, name: 'Chief Financial Officer' },
-        //     { id: 15, name: 'Full-time Community Connections Intern (paid internship)' },
-        //     { id: 16, name: 'Country Coordinator' },
-        //     { id: 17, name: 'BCC Specialist' },
-        //     { id: 18, name: 'Software Developer' },
-        //     { id: 19, name: 'Saleswomen' },
-        //     { id: 20, name: 'Chief of Party (COP)' },
-        //     { id: 21, name: 'Graphic Designer' },
-        //     { id: 22, name: 'Backend developer (JAVA)' },
-        //     { id: 23, name: 'Journalism Trainer' },
-        //     { id: 24, name: 'Training Officer' },
-        //     { id: 25, name: 'Programmer' },
-        //     { id: 26, name: 'Tester' },
-        //     { id: 27, name: 'Receptionist' },
-        //     { id: 28, name: 'Programs Manager' },
-        //     { id: 29, name: 'Proposal writer' },
-        //     { id: 30, name: 'Manager of Information Systems' },
-        //     { id: 31, name: 'English Translator/ Interpreter' },
-        //     { id: 32, name: 'Technical Project Manager' },
-        //     { id: 33, name: 'AutoCAD Operator' },
-        //     { id: 34, name: 'Language and Administrative Assistant' },
-        //     { id: 35, name: 'Executive Director' },
-        //     { id: 36, name: 'Game Developer Specialist' },
-        //     { id: 37, name: 'Marketing Specialist}, Commodity Export' },
-        //     { id: 38, name: 'NGO Training on the Framework Convention for the Protection of' },
-        //     { id: 39, name: 'Global Supplementary Grant Program' },
-        //     { id: 40, name: 'Finance Assistant/ Accountant' },
-        //     { id: 41, name: 'Engineer/ Supervisor for the Global Fund Project' }
-        // ];
-
-
         // Filter and update the search results based on the query
-        const filteredResults = simulatedResults.filter(category =>
-            category.jobs.some(job => job.name.toLowerCase().includes(query.toLowerCase()))
-        );
+        // const filteredResults = simulatedResults.filter(category =>
+        //     category.jobs.some(job => job.name.toLowerCase().includes(query.toLowerCase()))
+        // );
 
+        const filteredResults = simulatedResults.map(category => ({
+            ...category,
+            jobs: category.jobs.filter(job =>
+                job.name.toLowerCase().includes(query.toLowerCase())
+            )
+        })).filter(category => category.jobs.length > 0);
 
+        console.log(filteredResults)
         setSearchResults(filteredResults);
     };
 
@@ -167,7 +131,6 @@ export default function TextPage() {
             setSuggestedJobs([]);
         }
         console.log("List suggestion: ", suggestedJobs)
-
     };
 
     return (
@@ -176,45 +139,59 @@ export default function TextPage() {
                 <HeaderImage />
             </div>
 
-            <input
-                type="text"
-                placeholder="Nhập từ khóa tìm kiếm..."
-                value={searchQuery}
-                onChange={handleSearchChange}
 
-            />
+            <div
+                className='outer-search'
+            >
+                <input
+                    type="text"
+                    className="search-input" // Apply a CSS class
+                    placeholder="Enter keywords to search ... "
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                />
+            </div>
+            <div style={{ display: 'flex' }}>
+                <div style={{ flex: 1, padding: '10px' }}>
+                    <Button variant="contained">Results</Button>
+                    <ul>
+                        {searchResults.map((category, categoryIndex) => (
+                            <li key={categoryIndex} className="job-category">
 
-            <ul>
-                {searchResults.map((category, categoryIndex) => (
-                    <li key={categoryIndex}>
-                        <h3>{category.name}</h3>
-                        <ul>
-                            {category.jobs.map((job, jobIndex) => (
-                                <li key={job.id}>
-                                    <button onClick={() => handleJobClick(job)}>
-                                        {job.name}
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    </li>
-                ))}
-            </ul>
+                                <h3 className='category-title'>{category.name}</h3>
+                                {/* <Button variant="contained">{category.name}</Button> */}
+                                <ul className="job-list">
+                                    {category.jobs.map((job, jobIndex) => (
+                                        <li key={job.id} className="job-list-item">
+                                            <button onClick={() => handleJobClick(job)}>
+                                                {job.name}
+                                            </button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div style={{ flex: 1, padding: '10px' }}>
+                    <Button variant="contained">Recently</Button>
+                    <ul>
+                        {selectedResults.map((job, index) => (
+                            <li key={index}>{job.name}</li>
+                        ))}
+                    </ul>
+                </div>
+                <div style={{ flex: 1, padding: '10px' }}>
+                    <Button variant="contained">Suggestion</Button>
+                    <ul>
+                        {suggestedJobs.map((job, index) => (
+                            <li key={index}>{job.name}</li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
 
-            <h2>Recently:</h2>
-            <ul>
-                {selectedResults.map((job, index) => (
-                    <li key={index}>{job.name}</li>
-                ))}
-            </ul>
-
-            <h2>Suggestion</h2>
-            <ul>
-                {suggestedJobs.map((job, index) => (
-                    <li key={index}>{job.name}</li>
-                ))}
-            </ul>
-            <DemoFooter />
+            <DemoFooter style={{ marginTop: 1000 }} />
 
         </div>
     );

@@ -39,10 +39,10 @@ export default function HomePage() {
                             alignItems="center"
                         >
                             <Link href="/text" >
-                                <ActionAreaCard name={"Search by text"} />
+                                <ActionAreaCard name={"Search by text"} mode={"text"} />
                             </Link>
                             <Link href="/image" >
-                                <ActionAreaCard name={"Search by image"} />
+                                <ActionAreaCard name={"Search by image"} mode={"image"} />
                             </Link>
                         </Grid>
                     </Box>
