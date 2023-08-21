@@ -1,0 +1,60 @@
+.outer-search {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;    
+    /* align-content: center; */
+    min-height: 100vh;
+
+}
+
+.search-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+
+    width: 500px;
+    outline: none;
+}
+
+
+
+
+/* styles.css */
+.job-category {
+    margin-bottom: 20px;
+    list-style-type: none
+}
+
+.category-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    /* background-color: #ccc; */
+}
+
+.job-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.job-list-item {
+    margin-bottom: 5px;
+}
+
+.job-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.job-button:hover {
+    background-color: #2980b9;
+}

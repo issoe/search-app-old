@@ -193,9 +193,16 @@ export default function HeaderImage() {
                             </Link>
                         </Typography>
 
-                        <Link to="/" variant="h6" noWrap component="div" sx={{ display: { xs: 'none', sm: 'block' } }}>
-                            AIQuest
-                        </Link>
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="div"
+                            sx={{ display: { xs: 'none', sm: 'block' } }}
+                        >
+                            <Link href="/newjob" >
+                                <p style={{ color: 'white', marginLeft: '20px' }}>New Job</p>
+                            </Link>
+                        </Typography>
 
                         {/* <Search>
                             <SearchIconWrapper>
