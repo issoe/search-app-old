@@ -189,12 +189,13 @@ export default function HeaderImage() {
                             sx={{ display: { xs: 'none', sm: 'block' } }}
                         >
                             <Link href="/" >
-                                <p>Products</p>
+                                <p style={{ color: 'white', marginLeft: '20px' }}>Products</p>
                             </Link>
                         </Typography>
 
-                        
-
+                        <Link to="/" variant="h6" noWrap component="div" sx={{ display: { xs: 'none', sm: 'block' } }}>
+                            AIQuest
+                        </Link>
 
                         {/* <Search>
                             <SearchIconWrapper>

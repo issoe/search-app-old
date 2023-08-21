@@ -119,7 +119,6 @@ export default function TextPage() {
     const handleJobClick = (job) => {
         setSelectedResults([...selectedResults, job]);
 
-
         const selectedCategory = simulatedResults.find(category =>
             category.jobs.some(j => j.id === job.id)
         );
@@ -127,6 +126,7 @@ export default function TextPage() {
         // Suggest other jobs in the same category
         if (selectedCategory) {
             setSuggestedJobs(selectedCategory.jobs.filter(j => j.id !== job.id));
+            // setSuggestedJobs([]);
         } else {
             setSuggestedJobs([]);
         }
@@ -143,56 +143,58 @@ export default function TextPage() {
             <div
                 className='outer-search'
             >
-                <input
-                    type="text"
-                    className="search-input" // Apply a CSS class
-                    placeholder="Enter keywords to search ... "
-                    value={searchQuery}
-                    onChange={handleSearchChange}
-                />
+                <div>
+                    <input
+                        type="text"
+                        className="search-input" // Apply a CSS class
+                        placeholder="Enter keywords to search ... "
+                        value={searchQuery}
+                        onChange={handleSearchChange}
+                    />
+
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ flex: 1, padding: '10px' }}>
+                            <Button variant="contained">Results</Button>
+                            <ul>
+                                {searchResults.map((category, categoryIndex) => (
+                                    <li key={categoryIndex} className="job-category">
+
+                                        <h3 className='category-title'>{category.name}</h3>
+                                        {/* <Button variant="contained">{category.name}</Button> */}
+                                        <ul className="job-list">
+                                            {category.jobs.map((job, jobIndex) => (
+                                                <li key={job.id} className="job-list-item">
+                                                    <button onClick={() => handleJobClick(job)}>
+                                                        {job.name}
+                                                    </button>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div style={{ flex: 1, padding: '10px' }}>
+                            <Button variant="contained">Recently</Button>
+                            <ul className="job-list">
+                                {selectedResults.map((job, index) => (
+                                    <li key={index} className="job-list-item">{job.name}</li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div style={{ flex: 1, padding: '10px' }}>
+                            <Button variant="contained">Suggestion</Button>
+                            <ul className="job-list">
+                                {suggestedJobs.map((job, index) => (
+                                    <li key={index} className="job-list-item">{job.name}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <DemoFooter />
             </div>
-            <div style={{ display: 'flex' }}>
-                <div style={{ flex: 1, padding: '10px' }}>
-                    <Button variant="contained">Results</Button>
-                    <ul>
-                        {searchResults.map((category, categoryIndex) => (
-                            <li key={categoryIndex} className="job-category">
-
-                                <h3 className='category-title'>{category.name}</h3>
-                                {/* <Button variant="contained">{category.name}</Button> */}
-                                <ul className="job-list">
-                                    {category.jobs.map((job, jobIndex) => (
-                                        <li key={job.id} className="job-list-item">
-                                            <button onClick={() => handleJobClick(job)}>
-                                                {job.name}
-                                            </button>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                <div style={{ flex: 1, padding: '10px' }}>
-                    <Button variant="contained">Recently</Button>
-                    <ul>
-                        {selectedResults.map((job, index) => (
-                            <li key={index}>{job.name}</li>
-                        ))}
-                    </ul>
-                </div>
-                <div style={{ flex: 1, padding: '10px' }}>
-                    <Button variant="contained">Suggestion</Button>
-                    <ul>
-                        {suggestedJobs.map((job, index) => (
-                            <li key={index}>{job.name}</li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-
-            <DemoFooter style={{ marginTop: 1000 }} />
-
         </div>
     );
 }

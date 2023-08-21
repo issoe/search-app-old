@@ -1,6 +1,12 @@
 .outer-search {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;    
+    /* align-content: center; */
+    min-height: 100vh;
+
 }
 
 .search-input {
